@@ -5,9 +5,8 @@ import re
 from typing import List, Dict
 from nltk.tokenize import word_tokenize, sent_tokenize
 
-# clean original texts
-
-# Function to clean text by removing the @ symbols and extra whitespace
+# clean original texts from COCA full-text dataset
+# step one: clean text by removing the @ symbols and extra whitespace
 def clean_text(text: str) -> str:
     """
     Remove @ symbols (added for copyright), HTML tags, backslashes, 
@@ -24,7 +23,7 @@ def clean_text(text: str) -> str:
     cleaned = re.sub(r'\s+', ' ', cleaned).strip()  # Normalize multiple spaces to single space
     return cleaned
 
-# Function to split text into words and get first 500 and last 500 words
+# step 2: split text into words and get first 500 and last 500 words
 def split_text_words(text: str) -> tuple:
     """
     Split cleaned text into words and extract the first 500 and last 500 words.
@@ -35,14 +34,14 @@ def split_text_words(text: str) -> tuple:
         tuple: (first_500_words, next_500_words) as strings, or empty strings if too short.
     """
     words = text.split()
-    if len(words) < 1000:  # Check if text has fewer than 1000 words
+    if len(words) < 1000:  
         print(f"Warning: Article has only {len(words)} words, less than 1000.")
-        return " ".join(words[:500]), ""  # Return first 500 words and empty string if too short
-    first_500 = " ".join(words[:500])  # First 500 words
-    next_500 = " ".join(words[500:1000])   # Last 500 words
+        return " ".join(words[:500]), ""  
+    first_500 = " ".join(words[:500]) 
+    next_500 = " ".join(words[500:1000])  
     return first_500, next_500
 
-# Function to process a single article
+# process a single article
 def process_article(article_id: str, full_text: str) -> Dict:
     """
     Process one article: clean it, extract first 1000 chars, and split into first/last 500 words.
@@ -232,4 +231,5 @@ if __name__ == "__main__":
     if os.path.exists(processed_path) and os.path.exists(generated_path):
         results = store_truncated_texts(processed_path, generated_path, output_path)
     else:
+
         print("Error: One or both input files do not exist.")
