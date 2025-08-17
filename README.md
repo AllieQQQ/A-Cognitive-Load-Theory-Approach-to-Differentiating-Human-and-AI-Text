@@ -28,7 +28,8 @@ The script analyzes textual features such as syntactic complexity, lexical varie
 
 1. Clone or download the repository.
 2. Install the required packages.
-3. Run the main Python script:
-4. As the data is under academic liscece and has restrictions, they are not openly published here, however, it is available from the author upon reasonable request and with the permission of Xiamen University (XMU).
+3. Run the Python scripts.
+4. Data Availability Declaration: As the data is under academic liscece and has restrictions, they are not openly published here. the details can be seen on the website of COCA FULL-TEXT dataset: https://www.corpusdata.org/intro.asp. however, a sample less than the restricted word count is available from the author upon reasonable request and with the permission of Xiamen University (XMU). other derived data in this study, such as scripts, resulting output (including frequency counts, syntactic complexity scores, statistical tables etc.,) will be shared on this webpage. These resources enable full replication of the reported analyses given appropriate access to COCA.
+
 
 
